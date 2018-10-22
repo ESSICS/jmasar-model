@@ -39,6 +39,7 @@ public class Snapshot{
 	private String userName;
 	private int usernameId;
 	private String comment;
+	private String name;
 	
 	private List<SnapshotPv<?>> snapshotPvList;
 	

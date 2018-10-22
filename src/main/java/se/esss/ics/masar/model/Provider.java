@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (C) 2018 European Spallation Source ERIC.
  *
  * This program is free software; you can redistribute it and/or
@@ -18,47 +18,12 @@
 
 package se.esss.ics.masar.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 /**
- * Class encapsulating data to describe a PV from a "masar" point of view.
  * @author georgweiss
  * Created 1 Oct 2018
  */
-@Getter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class ConfigPv {
-	
-	private int id;
-	private String pvName;
-	
-	/**
-	 * The default provider is ca, see {@link Provider}.
-	 */
-	@Builder.Default
-	private Provider provider = Provider.ca;
-	
-	@Builder.Default
-	private boolean readonly = false;
-	private String tags;
-	private String groupname;
-	
-	@Override
-	public boolean equals(Object other) {
-		if(other instanceof ConfigPv) {
-			return pvName.equals(((ConfigPv)other).getPvName());
-		}
-		
-		return false;
-	}
-	
-	@Override
-	public int hashCode() {
-		return pvName.hashCode();
-	}
+public enum Provider {
+
+	ca,
+	pva;
 }
