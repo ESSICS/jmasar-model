@@ -1,5 +1,5 @@
 /** 
- * Copyright (C) ${year} European Spallation Source ERIC.
+ * Copyright (C) 2018 European Spallation Source ERIC.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -21,23 +21,35 @@ package se.esss.ics.masar.model;
 import java.util.Date;
 import java.util.List;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * Class representing a configuration node. It holds a list of {@link ConfigPv}s, but does not
+ * contain any other {@link Node} objects. A configuration in the save & restore context basically
+ * lists the PVs that are to be saved to a {@link Snapshot} upon user request.
+ * @author georgweiss
+ * Created 14 Nov 2018
+ */
 @Getter
 @NoArgsConstructor
 public class Config extends Node {
 
+	@ApiModelProperty(required = false, value = "Default is true. Use case not defined...", allowEmptyValue = true)
 	private boolean active = true;
+	@ApiModelProperty(required = true, value = "Describes the configuration")
 	private String description;
+	@ApiModelProperty(required = false, value = "The system/subsystem associated with the configuration", allowEmptyValue = true)
 	private String system;
+	@ApiModelProperty(required = true, value = "Must be specified, but can be updated.")
 	private List<ConfigPv> configPvList;
 
 	@Builder
-	public Config(int id, String name, Date created, Date lastModified, Node parent, 
+	public Config(int id, String name, Date created, Date lastModified, int parentId, 
 			boolean active, String description, String system, List<ConfigPv> configPvList) {
-		super(id, name, created, lastModified, parent, NodeType.CONFIGURATION);
+		super(id, name, created, lastModified, parentId, NodeType.CONFIGURATION);
 
 		this.active = active;
 		this.description = description;
@@ -50,9 +62,11 @@ public class Config extends Node {
 		this.configPvList = configPvList;
 	}
 	
+	/**
+	 * @return {@link NodeType#CONFIGURATION}
+	 */
 	@Override
 	public NodeType getNodeType() {
 		return NodeType.CONFIGURATION;
 	}
-
 }

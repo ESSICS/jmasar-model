@@ -2,7 +2,6 @@ package se.esss.ics.masar.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
 
 import java.util.Date;
 
@@ -36,14 +35,14 @@ public class NodeTest {
 		node.setId(1);
 		node.setName("name");
 		node.setNodeType(NodeType.CONFIGURATION);
-		node.setParent(null);
+		node.setParentId(7);
 		
 		assertEquals(now, node.getCreated());
 		assertEquals(now, node.getLastModified());
 		assertEquals(1, node.getId());
 		assertEquals("name", node.getName());
 		assertEquals(NodeType.CONFIGURATION, node.getNodeType());
-		assertNull(node.getParent());
+		assertEquals(7, node.getParentId());
 	}
 	
 	@Test

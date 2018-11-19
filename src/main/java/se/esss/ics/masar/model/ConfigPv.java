@@ -18,13 +18,14 @@
 
 package se.esss.ics.masar.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * Class encapsulating data to describe a PV from a "masar" point of view.
+ * Class encapsulating data to describe a PV subject to a save operation (=take snapshot).
  * @author georgweiss
  * Created 1 Oct 2018
  */
@@ -34,18 +35,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ConfigPv {
 	
+	@ApiModelProperty(required = false, value = "Database id of the config PV, defined by the server", allowEmptyValue = true)
 	private int id;
+	@ApiModelProperty(required = true, value = "The fully qualified EPICS PV name")
 	private String pvName;
 	
 	/**
-	 * The default provider is ca, see {@link Provider}.
+	 * The default provider is {@link Provider#ca}.
 	 */
+	@ApiModelProperty(required = false, value = "Defaults to ca (=channel access)", allowEmptyValue = true)
 	@Builder.Default
 	private Provider provider = Provider.ca;
 	
+	@ApiModelProperty(required = false, value = "Defaults to false. Use case TBD", allowEmptyValue = true)
 	@Builder.Default
 	private boolean readonly = false;
+	@ApiModelProperty(required = false, value = "Use case TBD", allowEmptyValue = true)
 	private String tags;
+	@ApiModelProperty(required = false, value = "Use case TBD", allowEmptyValue = true)
 	private String groupname;
 	
 	@Override

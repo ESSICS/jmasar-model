@@ -21,7 +21,7 @@ public class FolderTest {
 				.lastModified(now)
 				.id(1)
 				.name("name")
-				.parent(null)
+				.parentId(7)
 				.childNodes(Collections.emptyList())
 				.build();
 		
@@ -29,7 +29,7 @@ public class FolderTest {
 		assertEquals("name", folder.getName());
 		assertEquals(now, folder.getCreated());
 		assertEquals(now, folder.getLastModified());
-		assertNull(folder.getParent());
+		assertEquals(7, folder.getParentId());
 		assertTrue(folder.getChildNodes().isEmpty());
 		
 	}
@@ -45,6 +45,6 @@ public class FolderTest {
 		assertNull(folder.getLastModified());
 		assertNull(folder.getName());
 		assertEquals(0, folder.getId());
-		assertNull(folder.getParent());
+		assertEquals(0, folder.getParentId());
 	}
 }

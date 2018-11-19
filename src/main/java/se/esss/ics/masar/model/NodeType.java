@@ -1,5 +1,5 @@
 /** 
- * Copyright (C) ${year} European Spallation Source ERIC.
+ * Copyright (C) 2018 European Spallation Source ERIC.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,6 +18,11 @@
 
 package se.esss.ics.masar.model;
 
+/**
+ * Describes the type of node id the tree structure.
+ * @author georgweiss
+ * Created 14 Nov 2018
+ */
 public enum NodeType {
 	
 	FOLDER,

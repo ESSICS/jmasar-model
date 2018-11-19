@@ -1,5 +1,5 @@
 /** 
- * Copyright (C) ${year} European Spallation Source ERIC.
+ * Copyright (C) 2018 European Spallation Source ERIC.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@ package se.esss.ics.masar.model;
 
 import java.util.Date;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,11 +37,17 @@ import lombok.Setter;
  */
 public class Node{
 	
+	@ApiModelProperty(required = false, value = "Database id of the node, defined by the server", allowEmptyValue = true)
 	private int id;
+	@ApiModelProperty(required = true, value = "Name of the folder or configuration")
 	private String name;
+	@ApiModelProperty(required = false, value = "Creation date, set by the server", allowEmptyValue = true)
 	private Date created;
+	@ApiModelProperty(required = false, value = "Last modified date, set by the server", allowEmptyValue = true)
 	private Date lastModified;
-	private Node parent;
+	@ApiModelProperty(required = true, value = "Parent node id. Node with id=0 is the tree root.")
+	private int parentId;
+	@ApiModelProperty(required = false, value = "Set by the subclass.")
 	private NodeType nodeType;
 	
 	/**
@@ -48,8 +55,8 @@ public class Node{
 	 */
 	public static final int ROOT_NODE_ID = 0;
 	
-	public void setParent(Node parent) {
-		this.parent = parent;
+	public void setParent(int parentId) {
+		this.parentId = parentId;
 	}
 	
 	/**

@@ -1,5 +1,5 @@
 /** 
- * Copyright (C) ${year} European Spallation Source ERIC.
+ * Copyright (C) 2018 European Spallation Source ERIC.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -22,22 +22,33 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * Class representing a folder in the tree structure maintained by the jmasar service. A folder
+ * contains an array of child nodes that are either {@link Folder}s or {@link Config}s.
+ * @author georgweiss
+ * Created 14 Nov 2018
+ */
 @Getter
 @NoArgsConstructor
 public class Folder extends Node {
 
+	@ApiModelProperty(required = false, value = "Child nodes are added separately", allowEmptyValue = true)
 	private List<Node> childNodes = new ArrayList<>();
 
 	@Builder
-	public Folder(int id, String name, Date created, Date lastModified, Node parent, List<Node> childNodes) {
-		super(id, name, created, lastModified, parent, NodeType.FOLDER);
+	public Folder(int id, String name, Date created, Date lastModified, int parentId, List<Node> childNodes) {
+		super(id, name, created, lastModified, parentId, NodeType.FOLDER);
 		this.childNodes = childNodes;
 	}
 
+	/**
+	 * @return {@link NodeType#FOLDER}
+	 */
 	@Override
 	public NodeType getNodeType() {
 		return NodeType.FOLDER;

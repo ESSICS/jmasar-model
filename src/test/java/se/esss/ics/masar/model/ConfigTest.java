@@ -76,10 +76,10 @@ public class ConfigTest {
 		
 		assertEquals(1, config.getConfigPvList().size());
 		
-		config.setParent(new Node());
+		config.setParentId(7);
 		config.setConfigPvList(Collections.emptyList());
 		
-		assertNotNull(config.getParent());
+		assertEquals(7, config.getParentId());
 		assertTrue(config.getConfigPvList().isEmpty());
 	}
 	
@@ -113,7 +113,7 @@ public class ConfigTest {
 				.id(1)
 				.name("name")
 				.system("system")
-				.parent(null)
+				.parentId(7)
 				.build();
 		
 		assertEquals(1, config.getId());
@@ -121,7 +121,7 @@ public class ConfigTest {
 		assertEquals(now, config.getLastModified());
 		assertTrue(config.getConfigPvList().isEmpty());
 		assertFalse(config.isActive());
-		assertNull(config.getParent());
+		assertEquals(7, config.getParentId());
 		assertEquals("description", config.getDescription());
 		assertEquals("name", config.getName());
 		assertEquals("system", config.getSystem());
@@ -131,13 +131,13 @@ public class ConfigTest {
 	public void testAllArgsContructor() {
 		Date now = new Date();
 		Config config = 
-				new Config(1, "name", now, now, null, false, "description", "system", Collections.emptyList());
+				new Config(1, "name", now, now, 7, false, "description", "system", Collections.emptyList());
 		assertEquals(1, config.getId());
 		assertEquals(now, config.getCreated());
 		assertEquals(now, config.getLastModified());
 		assertTrue(config.getConfigPvList().isEmpty());
 		assertFalse(config.isActive());
-		assertNull(config.getParent());
+		assertEquals(7, config.getParentId());
 		assertEquals("description", config.getDescription());
 		assertEquals("name", config.getName());
 		assertEquals("system", config.getSystem());

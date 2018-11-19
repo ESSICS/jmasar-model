@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2018 European Spallation Source ERIC.
  *
  * This program is free software; you can redistribute it and/or
@@ -19,6 +19,7 @@
 package se.esss.ics.masar.model;
 
 /**
+ * Describes the type of provider associated with a {@link ConfigPv}.
  * @author georgweiss
  * Created 1 Oct 2018
  */

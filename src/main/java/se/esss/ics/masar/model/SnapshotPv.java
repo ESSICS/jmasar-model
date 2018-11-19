@@ -1,5 +1,5 @@
 /** 
- * Copyright (C) ${year} European Spallation Source ERIC.
+ * Copyright (C) 2018 European Spallation Source ERIC.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,17 +18,26 @@
 
 package se.esss.ics.masar.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Class encapsulating data associated with a PV. The {@link SnapshotPv#fetchStatus} field will
+ * indicate if the service has been able to read the PV or not.
+ * @author georgweiss
+ * Created 14 Nov 2018
+ * @param <T>
+ */
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ApiModel(description = "Created by the service when a snapshot is requested.")
 public class SnapshotPv<T> {
 
 	private int snapshotId;
