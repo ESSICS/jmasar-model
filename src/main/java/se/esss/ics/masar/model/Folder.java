@@ -53,4 +53,14 @@ public class Folder extends Node {
 	public NodeType getNodeType() {
 		return NodeType.FOLDER;
 	}
+	
+	@Override
+	public boolean equals(Object other) {
+		return super.equals(other);
+	}
+	
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
 }

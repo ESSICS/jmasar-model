@@ -51,7 +51,7 @@ public class NodeTest {
 		Node node1 = new Node();
 		Node node2 = new Node();
 		
-		assertNotEquals(node1, node2);
+		assertEquals(node1, node2);
 		
 		node1.setId(1);
 		assertNotEquals(node1, node2);
@@ -67,7 +67,7 @@ public class NodeTest {
 				.id(0)
 				.build();
 		
-		assertNotEquals(folder1, folder2);
+		assertEquals(folder1, folder2);
 		
 		folder1.setId(1);
 		
@@ -89,7 +89,7 @@ public class NodeTest {
 				.id(0)
 				.build();
 		
-		assertNotEquals(config1, config2);
+		assertEquals(config1, config2);
 		
 		config1.setId(1);
 		assertNotEquals(config1, config2);

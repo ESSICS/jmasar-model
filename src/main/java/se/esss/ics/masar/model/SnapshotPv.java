@@ -30,7 +30,7 @@ import lombok.Setter;
  * indicate if the service has been able to read the PV or not.
  * @author georgweiss
  * Created 14 Nov 2018
- * @param <T>
+ * @param <T> The type for this generic class.
  */
 @Getter
 @Setter

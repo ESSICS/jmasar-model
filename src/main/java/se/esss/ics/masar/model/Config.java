@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Class representing a configuration node. It holds a list of {@link ConfigPv}s, but does not
- * contain any other {@link Node} objects. A configuration in the save & restore context basically
+ * contain any other {@link Node} objects. A configuration in the save snapshot context basically
  * lists the PVs that are to be saved to a {@link Snapshot} upon user request.
  * @author georgweiss
  * Created 14 Nov 2018
@@ -68,5 +68,15 @@ public class Config extends Node {
 	@Override
 	public NodeType getNodeType() {
 		return NodeType.CONFIGURATION;
+	}
+	
+	@Override
+	public boolean equals(Object other) {
+		return super.equals(other);
+	}
+	
+	@Override
+	public int hashCode() {
+		return super.hashCode();
 	}
 }

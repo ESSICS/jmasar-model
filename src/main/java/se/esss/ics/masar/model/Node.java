@@ -74,10 +74,6 @@ public class Node{
 		
 		if (other instanceof Node) {
 			Node otherNode = (Node)other;
-			if(otherNode.getId() == 0 && getId() == 0) {
-				return false;
-			}
-			
 			return otherNode.getId() == getId();
 		}
 
