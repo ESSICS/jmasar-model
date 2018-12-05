@@ -1,4 +1,2 @@
-jmasar-model is a library for data objects used in the jmasar-service. 
-Java-based clients using the service can use this library to facilitate
-marshalling/unmarshalling.
+This has been moved here: https://gitlab.esss.lu.se/ics-software/jmasar-model
 
